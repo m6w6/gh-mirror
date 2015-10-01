@@ -4,7 +4,7 @@ Simple PHP webhook to mirror github repositories.
 
 ## Requirements
 
-* [pecl/http](/m6w6/ext-http)
+* [pecl/http](https://github.com/m6w6/ext-http)
 
 ## License
 
