@@ -42,6 +42,10 @@ switch ($evt) {
 			$response->setResponseCode(415);
 			$response->setContentType($request->getHeader("Content-Type"));
 			$response->getBody()->append($request->getBody());
+		} elseif (!isset($json->repository) && $evt === "ping") {
+			// ping on an org webhook
+			$response->setResponseCode(202);
+			$response->getBody()->append("PONG");
 		} elseif (!in_array(isset($json->repository->owner->name)?$json->repository->owner->name:$json->repository->owner->login, $owners, true)) {
 			$response->setResponseCode(403);
 			$response->getBody()->append("Invalid owner");
