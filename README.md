@@ -6,6 +6,14 @@ Simple PHP webhook to mirror github repositories.
 
 * [pecl/http](https://github.com/m6w6/ext-http)
 
+## Configuration
+
+```php
+$mirror = getenv("mirror") ?: "/var/github/mirror";
+$secret = getenv("secret") ?: trim(file_get_contents("$mirror/.secret"));
+$owners = explode(",", getenv("owners") ?: trim(file_get_contents("$mirror/.owners")));
+```
+
 ## License
 
 gh-mirror is licensed under the 2-Clause-BSD license, which can be found in
